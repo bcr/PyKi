@@ -49,4 +49,7 @@ while current_pin <= total_pins:
     coordinate_y += current_position_adjustment[1]
     current_pin += 1
 
-print(pins)
+for pin in pins:
+    # (pad 1 thru_hole circle (at -1.27 -5.08) (size 1.524 1.524) (drill 1) (layers *.Cu *.Mask))
+
+    print("  (pad {pin[0]} thru_hole circle (at {pin[1].magnitude} {pin[2].magnitude}) (size 1.524 1.524) (drill 1) (layers *.Cu *.Mask))".format(pin = pin))
