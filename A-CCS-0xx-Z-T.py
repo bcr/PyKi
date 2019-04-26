@@ -1,8 +1,8 @@
 from pint import UnitRegistry
 
-def generate_pins(total_pins):
-    ureg = UnitRegistry()
+ureg = UnitRegistry()
 
+def generate_pins(total_pins):
     # http://www.assmann-wsw.com/fileadmin/datasheets/ASS_0981_CO.pdf
 
     pitch = 2.54 * ureg.mm
@@ -49,4 +49,4 @@ def generate_pins(total_pins):
 for pin in generate_pins(44):
     # (pad 1 thru_hole circle (at -1.27 -5.08) (size 1.524 1.524) (drill 1) (layers *.Cu *.Mask))
 
-    print("  (pad {pin[0]} thru_hole circle (at {pin[1].magnitude} {pin[2].magnitude}) (size 1.524 1.524) (drill 1) (layers *.Cu *.Mask))".format(pin = pin))
+    print("  (pad {pin[0]} thru_hole circle (at {xpos} {ypos}) (size 1.524 1.524) (drill 1) (layers *.Cu *.Mask))".format(pin = pin, xpos = pin[1].to(ureg.millimeter).magnitude, ypos = pin[2].to(ureg.millimeter).magnitude))
