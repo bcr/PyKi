@@ -58,7 +58,7 @@ rows = int(count / 2)
 
 for row in range(rows):
     ypos = -150 - (row * 100)
-    print(-150, ypos)
-    print(1450, ypos)
+    print("X {pin[0]} {pinno} -150 {ypos} 100 R 50 50 1 1 {pin[1]}".format(pin = pins[row], ypos = ypos, pinno=row + 1))
+    print("X {pin[0]} {pinno} 1450 {ypos} 100 L 50 50 1 1 {pin[1]}".format(pin = pins[count - row - 1], ypos = ypos, pinno=count - row))
 
 print(len(pins))
